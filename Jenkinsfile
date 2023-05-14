@@ -4,17 +4,20 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'mvn clean compile'
+                bat './mvnw clean install'
+                echo 'mvnw compiled'
             }
         }
         stage('Test') {
             steps {
-                bat 'mvn test'
+                bat './mvnw test'
+                echo 'mvnw tested'
             }
         }
         stage('Deploy') {
             steps {
-                bat 'mvn deploy'
+                bat './mvnw deploy'
+                echo 'mvnw deployed'
             }
         }
     }
